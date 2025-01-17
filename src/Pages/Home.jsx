@@ -1,15 +1,20 @@
-import Footer from '../Components/Footer'
-import Navbar from '../Components/Navbar'
-import './home.css'
+import { useState } from "react"
+
 function Home(){
+
+    const [num,setNum]=useState(100)
+
+    console.log("re-rendered");
+    
+
+    function display(){
+     setNum(num+1)
+    }
 
     return(
         <>
-        <Navbar/>
-        <div className="home">
-             <h1>Home page</h1>
-        </div>
-<Footer/>
+<h1>Home page {num}</h1>
+<button onClick={display}>Click</button>
         </>
        
     )
