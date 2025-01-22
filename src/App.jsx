@@ -1,5 +1,6 @@
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Home from "./Pages/Home"
+import Singlepage from './Pages/Singlepage'
 
 
 function App(){
@@ -10,6 +11,10 @@ function App(){
       path:'/',
       element: <Home/> 
     },
+    {
+      path:'/singlepage/:category',
+      element:<Singlepage/>
+    }
 
   ])
 
