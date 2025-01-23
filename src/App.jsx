@@ -1,6 +1,7 @@
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Home from "./Pages/Home"
 import Singlepage from './Pages/Singlepage'
+import Usereducerone from './Pages/Usereducerone'
 
 
 function App(){
@@ -9,7 +10,7 @@ function App(){
   const abc=createBrowserRouter([
     {
       path:'/',
-      element: <Home/> 
+      element: <Usereducerone/> 
     },
     {
       path:'/singlepage/:category',

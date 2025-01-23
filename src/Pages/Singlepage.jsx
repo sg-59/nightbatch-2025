@@ -1,13 +1,42 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import './single.css'
 import Nav from '../componenet/Nav';
+import {styled} from 'styled-components'
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalTitle,
+} from 'mdb-react-ui-kit';
+
+const MdbButton=styled(MDBBtn)`
+  margin-left: 30%;
+  background-color: #e3b90e;
+  color: green;
+
+`
+const MDBModals=styled(MDBModalTitle)`
+  color: green;
+`
+
 function Singlepage() {
     const a=useParams()
+    const navigate=useNavigate()
     console.log(a.category);
 
     const [apiData,setApiData]=useState([])
+
+    const [basicModal, setBasicModal] = useState(false);
+
+    const toggleOpen = () =>{
+      setBasicModal(!basicModal)
+    setTimeout(()=>{
+navigate('/')
+    },1000)
+    }
 
  
     async function hello(){
@@ -38,6 +67,18 @@ return li.strCategory==a.category
             <p style={{color:"wheat"}}>{li.strCategoryDescription}</p>
             </>
         ))}
+
+<MdbButton onClick={toggleOpen}>Order Now</MdbButton>
+      <MDBModal open={basicModal} onClose={() => setBasicModal(false)} tabIndex='-1'>
+        <MDBModalDialog>
+          <MDBModalContent>
+         
+              <MDBModals>order successfull</MDBModals>
+
+          
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
     </div>
     </>
   )
