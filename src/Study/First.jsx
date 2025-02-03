@@ -4,15 +4,6 @@ import { Appcontext } from './Store'
 import { Link } from 'react-router-dom'
 function First() {
 
-  const datasss=[{name:"rajeena",job:"mernstack"},{name:"gopika",job:"Backend developer"}]
-
-  localStorage.setItem("Rajeena",JSON.stringify(datasss))
-
-  const getData=JSON.parse(localStorage.getItem("Rajeena")) 
-console.log("*******************************99",getData);
-
-
-
  const {dispatch}=useContext(Appcontext)
  const [number,setNumber]=useState(0)
 

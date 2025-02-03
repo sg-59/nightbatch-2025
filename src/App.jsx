@@ -4,8 +4,13 @@ import Singlepage from './Pages/Singlepage'
 import Usereducerone from './Pages/Usereducerone'
 import First from './Study/First'
 import Second from './Study/Second'
-import { createContext } from 'react'
 import Third from './Study/Third'
+import Signup from './Study/Signup'
+import Userefone from './Study/Userefone'
+import Useeffectone from './Study/Useeffectone'
+import Memo1 from './Study/Memo1'
+
+
 
 
 function App(){
@@ -15,7 +20,7 @@ function App(){
   const abc=createBrowserRouter([
     {
       path:'/',
-      element: <Usereducerone/> 
+      element: <Useeffectone/> 
     },
     {
       path:'/singlepage/:category',
@@ -32,7 +37,21 @@ function App(){
     {
       path:"/third",
       element:<Third/>
-    }
+    },
+    {
+      path:"/signup",
+      element:<Signup/>
+    },
+    {
+      path:"/useref",
+      element:<Userefone/>
+    },
+    {
+      path:'/memo1',
+      element:<Memo1/>
+    },
+ 
+ 
 
   ])
 

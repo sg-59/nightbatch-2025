@@ -1,39 +1,38 @@
-import { createContext, useState } from "react"
-import { useReducer } from "react"
+import { createContext, useEffect, useState } from "react";
+import { useReducer } from "react";
 
-export const Appcontext=createContext()
+export const Appcontext = createContext();
 
+export const Storepage = ({ children }) => {
+  const InitialValue = {
+    userData: JSON.parse(localStorage.getItem("gopika_storage")) || null,
+  };
 
+  function display(state, action) {
+    console.log("action values ..................", action);
 
-export const Storepage=({children})=>{
+    switch (action.status) {
+      case "success":
+        return { userData: action.apidata };
 
-    const InitialValue={
-        userData:null
+      case "remove":
+        return { userData: null };
     }
+  }
 
-    function display(state,action){
-console.log("action values ..................",action);
+  const [state, dispatch] = useReducer(display, InitialValue);
 
-switch(action.status){
-    case "success":
-        return {userData:action.apidata}
-}
+  console.log("final answer", state.userData);
 
+  useEffect(() => {
+    localStorage.setItem("gopika_storage", JSON.stringify(state.userData));
+  }, [state.userData]);
 
-    }
-
-
-    const [state,dispatch]=useReducer(display,InitialValue)
-
-
-    console.log("final answer",state.userData);
-    
-
-    return(
-        <>
-       <Appcontext.Provider value={{dispatch,user:state.userData}}>
-{children}
- </Appcontext.Provider>
-        </>
-    )
-}
+  return (
+    <>
+      <Appcontext.Provider value={{ dispatch, user: state.userData }}>
+        {children}
+      </Appcontext.Provider>
+    </>
+  );
+};
