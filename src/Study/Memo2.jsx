@@ -1,13 +1,15 @@
 import React from 'react'
 
-function Memo2({num2}) {
+function Memo2({data}) {
 
+
+data()
     console.log("child component re-rendered ");
     
 
   return (
     <div>
-      <h1>Memo 2 {num2}</h1>
+      <h1>Memo 2 </h1>
     </div>
   )
 }

@@ -9,6 +9,8 @@ import Signup from './Study/Signup'
 import Userefone from './Study/Userefone'
 import Useeffectone from './Study/Useeffectone'
 import Memo1 from './Study/Memo1'
+import Sample from './Study/Sample'
+import Hello from './Study/Hello'
 
 
 
@@ -20,7 +22,11 @@ function App(){
   const abc=createBrowserRouter([
     {
       path:'/',
-      element: <Useeffectone/> 
+      element: <Sample/> 
+    },
+    {
+      path:'/hello',
+      element: <Hello/> 
     },
     {
       path:'/singlepage/:category',
